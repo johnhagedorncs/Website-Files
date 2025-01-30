@@ -95,6 +95,14 @@ nav ul li a {
   text-decoration: none;
 }
 
+.profile-img {
+  width: 150px; /* Set fixed width */
+  height: 150px; /* Set fixed height */
+  object-fit: cover; /* Crops the image to fit */
+  object-position: center; /* Centers the cropped area */
+  border-radius: 50%; /* Makes it circular */
+}
+
 /* Footer */
 footer {
   background: #1a1a1a;
