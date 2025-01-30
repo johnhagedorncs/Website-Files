@@ -96,8 +96,8 @@ nav ul li a {
 }
 
 .profile-img {
-  width: 150px; /* Set fixed width */
-  height: 150px; /* Set fixed height */
+  width: 250px; /* Set fixed width */
+  height: 250px; /* Set fixed height */
   object-fit: cover; /* Crops the image to fit */
   object-position: center; /* Centers the cropped area */
   border-radius: 50%; /* Makes it circular */
