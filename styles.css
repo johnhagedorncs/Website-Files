@@ -1,81 +1,111 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s; /* Smooth transition for dark mode */
-  }
-  
-  header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d; /* Dark theme background */
+  color: #e0e0e0; /* Light text */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header / Navigation */
+header {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hero Section */
+#home {
+  text-align: center;
+  padding: 3rem;
+}
+
+#home h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#home p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+#home a {
+  text-decoration: none;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+/* About Section */
+#about {
+  background: #161616;
+  padding: 3rem;
+  text-align: center;
+}
+
+/* Projects */
+#projects {
+  text-align: center;
+  padding: 3rem;
+}
+
+.project {
+  display: inline-block;
+  width: 300px;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+.project h3 {
+  color: #ff6b6b;
+}
+
+.project a {
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   nav ul li {
-    display: inline;
-    margin: 0 10px;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  section {
-    padding: 2rem;
-  }
-  
-  #home {
-    background: #f4f4f4;
-    text-align: center;
-  }
-  
-  .project {
-    margin-bottom: 2rem;
-  }
-  
-  footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  
-  /* Dark Mode Styles */
-  .dark-mode {
-    background: #333;
-    color: #fff;
-  }
-  
-  .dark-mode header {
-    background: #222;
-  }
-  
-  .dark-mode footer {
-    background: #222;
-  }
-  
-  .dark-mode #home {
-    background: #444;
-    color: #fff;
-  }
-  
-  .dark-mode nav ul li a {
-    color: #fff;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    nav ul li {
       display: block;
-      text-align: center;
-    }
+      margin-bottom: 10px;
   }
+}
