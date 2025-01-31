@@ -55,11 +55,28 @@ nav ul li a {
   font-weight: 600;
 }
 
-#contact {
+/* Styling for Contact Links */
+#contact a {
+  display: block; /* Makes the links take up full width */
+  width: 200px; /* Adjust width as needed */
+  margin: 10px auto; /* Centers the links */
+  padding: 10px 15px;
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Bubble-like font */
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #ff6b6b; /* Fun red background */
+  color: white;
+  border-radius: 20px; /* Rounded bubble shape */
+  text-decoration: none;
+  box-shadow: 2px 4px 10px rgba(255, 107, 107, 0.4); /* Soft shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+#contact a:hover {
+  transform: scale(1.1); /* Slight enlargement */
+  box-shadow: 2px 6px 12px rgba(255, 107, 107, 0.6);
 }
 
 /* About Section */
