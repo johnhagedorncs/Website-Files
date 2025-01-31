@@ -55,6 +55,13 @@ nav ul li a {
   font-weight: 600;
 }
 
+#contact {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 /* About Section */
 #about {
   background: #161616;
