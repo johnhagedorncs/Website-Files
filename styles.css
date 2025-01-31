@@ -127,6 +127,31 @@ nav ul li a {
   text-decoration: none;
 }
 
+/* Project Links - Subtle Bubble Style */
+.project a {
+  display: inline-block;
+  width: 140px; /* Smaller width for a sleek look */
+  margin: 8px auto;
+  padding: 8px 12px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif; /* Modern and sleek font */
+  font-size: 1rem;
+  font-weight: 500;
+  background: #252525; /* Darker background for a subtle feel */
+  color: #e0e0e0; /* Light text */
+  border-radius: 15px; /* Soft rounded edges */
+  text-decoration: none;
+  box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.1); /* Low-key shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.project a:hover {
+  transform: scale(1.05); /* Slight hover effect */
+  box-shadow: 2px 3px 8px rgba(255, 255, 255, 0.2);
+  background: #333; /* Slightly lighter hover */
+}
+
 .profile-img {
   width: 250px; /* Set fixed width */
   height: 250px; /* Set fixed height */
