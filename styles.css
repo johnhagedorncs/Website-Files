@@ -96,6 +96,12 @@ nav ul li a {
   margin: 0 auto;
 }
 
+#about p {
+  line-height: 1.6; /* Adjusts space between lines */
+  max-width: 700px; /* Keeps it readable */
+  margin: 0 auto; /* Centers the text */
+}
+
 /* Projects */
 #projects {
   text-align: center;
