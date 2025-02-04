@@ -148,16 +148,16 @@ nav ul li a {
 
 /* Background images for each project */
 .project:nth-child(1) {
-  background-image: url('images/sre-monitoring.jpg'); 
+  background-image: url('IoT.png'); /* IoT */ 
 }
 .project:nth-child(2) {
-  background-image: url(''); /* sre */
+  background-image: url('SRE.png'); /* sre */
 }
 .project:nth-child(3) {
   background-image: url('snake.png'); /* snake */
 }
 .project:nth-child(4) {
-  background-image: url(''); /* ford */
+  background-image: url('ford.png'); /* ford */
 }
 
 .project::before {
