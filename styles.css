@@ -126,18 +126,19 @@ nav ul li a {
   overflow: hidden;
 }
 /* Background images for each project */
-.project:nth-child(1) {
-  background-image: url('images/sre-monitoring.jpg'); 
+.project:nth-of-type(1) {
+  background-image: url('images/sre-monitoring.jpg');
 }
-.project:nth-child(2) {
-  background-image: url('snake.png'); 
+.project:nth-of-type(2) {
+  background-image: url('images/snake.png'); /* Ensure the path is correct */
 }
-.project:nth-child(3) {
-  background-image: url('images/ford-taillights.jpg'); 
+.project:nth-of-type(3) {
+  background-image: url('images/ford-taillights.jpg');
 }
-.project:nth-child(4) {
-  background-image: url('images/iot-processor.jpg'); 
+.project:nth-of-type(4) {
+  background-image: url('images/iot-processor.jpg');
 }
+
 
 .project::before {
   content: "";
