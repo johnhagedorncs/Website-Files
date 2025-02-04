@@ -55,38 +55,6 @@ nav ul li a {
   font-weight: 600;
 }
 
-#contact {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Styling for Contact Links */
-#contact a {
-  display: block; /* Makes the links take up full width */
-  width: 200px; /* Adjust width as needed */
-  margin: 10px auto; /* Centers the links */
-  padding: 10px 15px;
-  text-align: center;
-  font-family: 'Poppins', sans-serif; /* Bubble-like font */
-  font-size: 1.2rem;
-  font-weight: bold;
-  background: #ff6b6b; /* Fun red background */
-  color: white;
-  border-radius: 20px; /* Rounded bubble shape */
-  text-decoration: none;
-  box-shadow: 2px 4px 10px rgba(255, 107, 107, 0.4); /* Soft shadow */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-/* Hover Effect */
-#contact a:hover {
-  transform: scale(1.1); /* Slight enlargement */
-  box-shadow: 2px 6px 12px rgba(255, 107, 107, 0.6);
-}
-
-
 /* About Section */
 #about {
   background: #161616;
@@ -97,13 +65,13 @@ nav ul li a {
 }
 
 #about p {
-  line-height: 1.6; /* Adjusts space between lines */
-  max-width: 700px; /* Keeps it readable */
-  margin: 0 auto; /* Centers the text */
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
   color: #a0a0a0;
 }
 
-/* Projects */
+/* Projects Section */
 #projects {
   text-align: center;
   padding: 3rem;
@@ -134,89 +102,66 @@ nav ul li a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust transparency: 0.5 = 50% dark */
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
   border-radius: 12px;
-  z-index: 1; /* Places it over the background */
+  z-index: 1;
 }
 
 /* Keep text and buttons above the dull effect */
 .project h3,
 .project a {
   position: relative;
-  z-index: 2;
 }
 
 /* Background images for each project */
-.project:nth-child(1) {
+.project:nth-of-type(1) {
   background-image: url('images/sre-monitoring.jpg'); 
 }
-.project:nth-child(2) {
-  background-image: url('snake.png'); 
+.project:nth-of-type(2) {
+  background-image: url('images/snake.png'); 
 }
-.project:nth-child(3) {
+.project:nth-of-type(3) {
   background-image: url('images/ford-taillights.jpg'); 
 }
-.project:nth-child(4) {
+.project:nth-of-type(4) {
   background-image: url('images/iot-processor.jpg'); 
-}
-
-.project::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  border-radius: 12px;
-  z-index: 1;
 }
 
 .project:hover {
   transform: scale(1.05);
 }
 
-.project a {
-  display: block;
-  color: #fff;
-  font-weight: bold;
-  margin-top: 10px;
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
-}
-
 /* Project Links - Subtle Bubble Style */
 .project a {
   display: inline-block;
-  width: 140px; /* Smaller width for a sleek look */
+  width: 140px;
   margin: 8px auto;
   padding: 8px 12px;
   text-align: center;
-  font-family: 'Poppins', sans-serif; /* Modern and sleek font */
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  background: #252525; /* Darker background for a subtle feel */
-  color: #e0e0e0; /* Light text */
-  border-radius: 15px; /* Soft rounded edges */
+  background: #252525;
+  color: #e0e0e0;
+  border-radius: 15px;
   text-decoration: none;
-  box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.1); /* Low-key shadow */
+  box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.1);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Hover Effect */
 .project a:hover {
-  transform: scale(1.05); /* Slight hover effect */
+  transform: scale(1.05);
   box-shadow: 2px 3px 8px rgba(255, 255, 255, 0.2);
-  background: #333; /* Slightly lighter hover */
+  background: #333;
 }
 
+/* Profile Image */
 .profile-img {
-  width: 250px; /* Set fixed width */
-  height: 250px; /* Set fixed height */
-  object-fit: cover; /* Crops the image to fit */
-  object-position: center; /* Centers the cropped area */
-  border-radius: 50%; /* Makes it circular */
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
 /* Footer */
@@ -224,6 +169,7 @@ footer {
   background: #1a1a1a;
   text-align: center;
   padding: 1.5rem;
+  color: #e0e0e0;
 }
 
 /* Responsive */
