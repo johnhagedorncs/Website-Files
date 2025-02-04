@@ -184,10 +184,6 @@ nav ul li a {
   text-decoration: none;
   position: relative;
   z-index: 2;
-}
-
-/* Project Links - Subtle Bubble Style */
-.project a {
   display: inline-block;
   width: 140px; /* Smaller width for a sleek look */
   margin: 8px auto;
