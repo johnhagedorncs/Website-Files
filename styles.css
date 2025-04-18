@@ -151,7 +151,7 @@ nav ul li a {
   background-image: url('webapp.png'); /* IoT */ 
 }
 .project:nth-child(2) {
-  background-image: url('SRE.png'); /* sre */
+  background-image: url('webapp.png'); /* sre */
 }
 .project:nth-child(3) {
   background-image: url('snake.png'); /* snake */
