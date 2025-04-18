@@ -148,16 +148,16 @@ nav ul li a {
 
 /* Background images for each project */
 .project:nth-child(1) {
-  background-image: url('webapp.png'); /* IoT */ 
+  background-image: url('webapp.png'); /* room error */ 
 }
 .project:nth-child(2) {
-  background-image: url('webapp.png'); /* sre */
+  background-image: url('webapp.png'); /* webapp */
 }
 .project:nth-child(3) {
-  background-image: url('SRE.png'); /* snake */
+  background-image: url('SRE.png'); /* sre */
 }
 .project:nth-child(4) {
-  background-image: url('snake.png'); /* ford */
+  background-image: url('snake.png'); /* snake */
 }
 .project:nth-child(5) {
   background-image: url('ford.png'); /* ford */
