@@ -150,16 +150,16 @@ nav ul li a {
 .project:nth-child(1) {
   background-image: url('webapp.png'); /* room error */ 
 }
-.project:nth-child(2) {
+.project:nth-child(3) {
   background-image: url('webapp.png'); /* webapp */
 }
-.project:nth-child(3) {
+.project:nth-child(4) {
   background-image: url('SRE.png'); /* sre */
 }
-.project:nth-child(4) {
+.project:nth-child(5) {
   background-image: url('snake.png'); /* snake */
 }
-.project:nth-child(5) {
+.project:nth-child(2) {
   background-image: url('paid.png'); /* paid */
 }
 
