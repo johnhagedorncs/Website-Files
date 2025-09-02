@@ -160,7 +160,7 @@ nav ul li a {
   background-image: url('snake.png'); /* snake */
 }
 .project:nth-child(5) {
-  background-image: url('ford.png'); /* ford */
+  background-image: url('paid.png'); /* paid */
 }
 
 .project::before {
