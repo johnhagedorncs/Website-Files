@@ -342,10 +342,11 @@ nav ul li a:hover::after {
 }
 
 /* Background images for each project */
-.project:nth-child(1) { background-image: url('paid.png'); }
-.project:nth-child(2) { background-image: url('webapp.png'); }
-.project:nth-child(3) { background-image: url('SRE.png'); }
-.project:nth-child(4) { background-image: url('snake.png'); }
+.project:nth-child(1) { background-image: url('artera.jpg'); }
+.project:nth-child(2) { background-image: url('paid.png'); }
+.project:nth-child(3) { background-image: url('webapp.png'); }
+.project:nth-child(4) { background-image: url('SRE.png'); }
+.project:nth-child(5) { background-image: url('snake.png'); }
 
 .project:hover {
   transform: translateY(-15px) scale(1.03);
@@ -353,10 +354,12 @@ nav ul li a:hover::after {
 }
 
 /* Stagger animation delays for projects */
+.project:nth-child(1) { transition-delay: 0s; }
 .project:nth-child(2) { transition-delay: 0.1s; }
 .project:nth-child(3) { transition-delay: 0.2s; }
 .project:nth-child(4) { transition-delay: 0.3s; }
 .project:nth-child(5) { transition-delay: 0.4s; }
+.project:nth-child(6) { transition-delay: 0.5s; }
 
 /* Project link buttons */
 .project a {
