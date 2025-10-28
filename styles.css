@@ -259,16 +259,13 @@ nav ul li a:hover::after {
   text-align: center;
   padding: 5rem 2rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #projects h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   position: relative;
-  width: 100%;
+  display: inline-block;
 }
 
 #projects h2::after {
@@ -283,19 +280,25 @@ nav ul li a:hover::after {
   border-radius: 2px;
 }
 
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .project {
   position: relative;
-  display: inline-block;
   width: 320px;
   background-size: cover;
   background-position: center;
   padding: 25px;
   border-radius: 20px;
-  margin: 20px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   min-height: 240px;
-  vertical-align: top;
   color: white;
   overflow: hidden;
   opacity: 0;
@@ -467,9 +470,14 @@ footer p {
     height: 220px;
   }
 
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .project {
     width: 90%;
-    margin: 15px auto;
+    max-width: 400px;
   }
 
   #about {
