@@ -95,10 +95,7 @@ nav ul li a:hover::after {
 #home h1 {
   font-size: 3.5rem;
   font-weight: bold;
-  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #48dbfb;
   margin: 1rem 0;
   animation: fadeInUp 1s ease 0.3s forwards;
   opacity: 0;
@@ -241,6 +238,7 @@ nav ul li a:hover::after {
 
 #about h2 {
   font-size: 2.5rem;
+  margin-top: 0;
   margin-bottom: 2rem;
   background: linear-gradient(135deg, #ff6b6b, #feca57);
   -webkit-background-clip: text;
@@ -261,13 +259,16 @@ nav ul li a:hover::after {
   text-align: center;
   padding: 5rem 2rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #projects h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   position: relative;
-  display: inline-block;
+  width: 100%;
 }
 
 #projects h2::after {
@@ -409,10 +410,8 @@ nav ul li a:hover::after {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  border: 5px solid transparent;
-  background: linear-gradient(#0d0d0d, #0d0d0d) padding-box,
-              linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb) border-box;
-  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.3);
+  border: 5px solid #48dbfb;
+  box-shadow: 0 20px 60px rgba(72, 219, 251, 0.3);
   animation: float 3s ease-in-out infinite, fadeInUp 1s ease forwards;
   opacity: 0;
   transition: transform 0.3s ease;
