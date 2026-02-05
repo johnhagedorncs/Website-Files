@@ -342,9 +342,9 @@ nav ul li a:hover::after {
 }
 
 /* Background images for each project */
+.project:nth-child(3) { background-image: url('golfr.png'); }
 .project:nth-child(1) { background-image: url('artera.jpg'); }
 .project:nth-child(2) { background-image: url('paid.png'); }
-.project:nth-child(3) { background-image: url('webapp.png'); }
 .project:nth-child(4) { background-image: url('SRE.png'); }
 .project:nth-child(5) { background-image: url('snake.png'); }
 
