@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }, observerOptions);
 
   // Observe sections and projects
-  document.querySelectorAll('#about, #contact, .project').forEach(el => {
+  document.querySelectorAll('#about, #contact, .project, .post').forEach(el => {
     observer.observe(el);
   });
 

@@ -1,0 +1,197 @@
+/* Article pages. Shares the site's palette: dark gradient, cyan #48dbfb, coral #ff6b6b. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  background-attachment: fixed;
+  color: #d8d8d8;
+  line-height: 1.75;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 16px;
+}
+
+header a:hover {
+  color: #ff6b6b;
+}
+
+article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3.5rem 16px 2rem;
+}
+
+article h1 {
+  font-size: 2.3rem;
+  line-height: 1.25;
+  color: #48dbfb;
+  margin: 0 0 0.75rem;
+}
+
+.byline {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+article h2 {
+  font-size: 1.5rem;
+  margin: 2.8rem 0 0.8rem;
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+article p,
+article li {
+  font-size: 1.06rem;
+}
+
+article strong {
+  color: #fff;
+}
+
+article a {
+  color: #48dbfb;
+}
+
+article a:hover {
+  color: #ff6b6b;
+}
+
+code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  color: #f0f0f0;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.98rem;
+}
+
+th,
+td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: #48dbfb;
+  font-weight: 600;
+}
+
+td.num {
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.92rem;
+}
+
+figure {
+  margin: 2rem 0;
+}
+
+figure img {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+figcaption {
+  color: #999;
+  font-size: 0.92rem;
+  margin-top: 0.6rem;
+  line-height: 1.6;
+}
+
+.proof {
+  background: rgba(22, 22, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 0.6rem 1.6rem;
+}
+
+.takeaway {
+  border-left: 4px solid #ff6b6b;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  margin: 1.5rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 3rem 0 1.5rem;
+}
+
+.post-footer {
+  color: #999;
+  font-size: 0.98rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  article h1 {
+    font-size: 1.8rem;
+  }
+
+  header a {
+    margin: 0 10px;
+  }
+
+  .proof {
+    padding: 0.4rem 1rem;
+  }
+}

@@ -249,7 +249,7 @@ nav ul li a:hover::after {
 #about p {
   line-height: 1.8;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 1.2rem;
   color: #c0c0c0;
   font-size: 1.1rem;
 }
@@ -330,9 +330,18 @@ nav ul li a:hover::after {
 
 /* Keep text and links above overlay */
 .project h3,
+.project p,
 .project a {
   position: relative;
   z-index: 2;
+}
+
+.project p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+  color: #e8e8e8;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 }
 
 .project h3 {
@@ -342,11 +351,13 @@ nav ul li a:hover::after {
 }
 
 /* Background images for each project */
-.project:nth-child(1) { background-image: url('golfr.png'); }
-.project:nth-child(2) { background-image: url('artera.jpg'); }
-.project:nth-child(3) { background-image: url('paid.png'); }
-.project:nth-child(4) { background-image: url('SRE.png'); }
-.project:nth-child(5) { background-image: url('snake.png'); }
+.project.bearing-watch { background-image: url('bearing-watch.jpg'); }
+.project.tsad-harness { background-image: url('tsad-harness.png'); }
+.project.sensorlint { background-image: url('sensorlint.png'); }
+.project.golfr { background-image: url('golfr.png'); }
+.project.linkrai { background-image: url('artera.jpg'); }
+.project.paid { background-image: url('paid.png'); }
+.project.sre { background-image: url('SRE.png'); }
 
 .project:hover {
   transform: translateY(-15px) scale(1.03);
@@ -360,6 +371,7 @@ nav ul li a:hover::after {
 .project:nth-child(4) { transition-delay: 0.3s; }
 .project:nth-child(5) { transition-delay: 0.4s; }
 .project:nth-child(6) { transition-delay: 0.5s; }
+.project:nth-child(7) { transition-delay: 0.6s; }
 
 /* Project link buttons */
 .project a {
@@ -407,6 +419,69 @@ nav ul li a:hover::after {
   box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
   border-color: rgba(255, 107, 107, 0.5);
   color: #fff;
+}
+
+/* Writing */
+#writing {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+#writing h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.post {
+  display: block;
+  text-align: left;
+  text-decoration: none;
+  color: #c0c0c0;
+  background: rgba(22, 22, 22, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.4s ease;
+}
+
+.post.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.post:hover {
+  border-color: rgba(255, 107, 107, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.25);
+}
+
+.post.visible:hover {
+  transform: translateY(-5px);
+}
+
+.post-date {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.post h3 {
+  color: #48dbfb;
+  font-size: 1.4rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.post p {
+  margin: 0;
+  line-height: 1.7;
 }
 
 /* Circular profile image */

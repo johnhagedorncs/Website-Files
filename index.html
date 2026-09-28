@@ -13,6 +13,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -20,18 +21,22 @@
 
   <!-- Hero Section -->
   <section id="home">
-    <img src="profile.jpg" class="profile-img">
+    <img src="profile.jpg" class="profile-img" alt="John Hagedorn">
     <h1>John Hagedorn</h1>
-    <p>Information Technology | Software Engineering | Website Reliability | Agents</p>
+    <p>Software Engineering | Machine Learning | MLOps | Anomaly Detection</p>
     <a href="#projects">View My Work</a>
   </section>
   <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>As a Computer Engineering Undergraduate at UC Santa Barbara, I am very passionate 
-    and enthralled by technology! I love working on both software and hardware projects, with 4+ 
-    years of software experience, and 2+ years of hardware experience. My specialties include full-stack 
-    development, IT, and AI.</p>
+    <p>I'm a Computer Engineering student at UC Santa Barbara. This summer I was an AI/ML
+    intern at BrightAI, building anomaly detection for industrial gas compressors: PyTorch
+    models trained on high-frequency vibration data, pipelines that pull that data out of S3,
+    and the packaging and Kubernetes workflows that run it in production.</p>
+    <p>What I care about most is whether a result is real. My recent projects are about the
+    cases where the standard approach reports something that isn't there, and what to do
+    about it. Before that I built full-stack web apps and monitoring tools, a few of which
+    are below.</p>
   </section>
 
   <!-- Projects -->
@@ -39,35 +44,62 @@
     <h2>Projects</h2>
     <div class="projects-container">
 
-      <div class="project">
+      <div class="project bearing-watch">
+        <h3>bearing-watch</h3>
+        <p>End-to-end predictive maintenance service for bearing vibration data: feature
+        pipeline, model, scoring API, Docker, CI, drift monitoring, Argo workflows.</p>
+        <a href="https://github.com/johnhagedorncs/bearing-watch">GitHub</a>
+      </div>
+
+      <div class="project tsad-harness">
+        <h3>tsad-harness</h3>
+        <p>Test harness for anomaly detectors, with a proof that a common detector can't see
+        gradual failures at any size.</p>
+        <a href="https://github.com/johnhagedorncs/tsad-harness">GitHub</a>
+        <a href="writing/ramp-blindness.html">Write-up</a>
+      </div>
+
+      <div class="project sensorlint">
+        <h3>sensorlint</h3>
+        <p>Python library of checks for sensor data pipelines. Every check stops the run
+        instead of warning, because silent bad data looks believable.</p>
+        <a href="https://github.com/johnhagedorncs/sensorlint">GitHub</a>
+      </div>
+
+      <div class="project golfr">
         <h3>Golfr</h3>
         <a href="https://github.com/johnhagedorncs/Golfr">GitHub</a>
       </div>
 
-      <div class="project">
+      <div class="project linkrai">
         <h3>LinkrAI</h3>
         <a href="https://linkrai-johnhagedorn.vercel.app">Web App</a>
         <a href="https://github.com/johnhagedorncs/LinkrAI/tree/main">GitHub</a>
       </div>
 
-      <div class="project">
+      <div class="project paid">
         <h3>Paid</h3>
         <a href="https://paid-app.vercel.app">Web App</a>
         <a href="https://github.com/benjaminsoo/Paid-App">GitHub</a>
       </div>
 
-      <div class="project">
+      <div class="project sre">
         <h3>SRE Monitoring Application</h3>
         <a href="https://www.youtube.com/watch?v=niR4Ux3BeFM">Live Demo</a>
         <a href="https://github.com/johnhagedorncs/SRE-Monitoring-Application">GitHub</a>
       </div>
-
-      <div class="project">
-        <h3>Modified Snake Arcade Game</h3>
-        <a href="https://www.youtube.com/watch?v=nDQH9OwrvsY">Live Demo</a>
-        <a href="https://github.com/johnhagedorncs/Modified-Snake-Arcade-Game/tree/main">GitHub</a>
-      </div>
     </div>
+  </section>
+
+  <!-- Writing -->
+  <section id="writing">
+    <h2>Writing</h2>
+    <a class="post" href="writing/ramp-blindness.html">
+      <span class="post-date">September 2026</span>
+      <h3>Your anomaly detector can't see slow failures, at any size</h3>
+      <p>A common robust z-score rule has a hard ceiling of 1.349 on a linear ramp, so a
+      3-sigma alert can never fire on steady wear. The four-line proof, the numbers, and the fix.</p>
+    </a>
   </section>
 
   <!-- Contact -->
@@ -79,7 +111,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 John Hagedorn</p>
+    <p>&copy; 2026 John Hagedorn</p>
   </footer>
 
   <script src="script.js"></script>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your anomaly detector can't see slow failures | John Hagedorn</title>
+  <meta name="description" content="A common robust z-score rule has a hard ceiling of 1.349 on a linear ramp. The four-line proof, the numbers, and the fix.">
+  <meta property="og:title" content="Your anomaly detector can't see slow failures, at any size">
+  <meta property="og:description" content="A common robust z-score rule has a hard ceiling of 1.349 on a linear ramp. The four-line proof, the numbers, and the fix.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#writing">Writing</a>
+  </header>
+
+  <article>
+    <h1>Your anomaly detector can't see slow failures, at any size</h1>
+    <p class="byline">John Hagedorn &middot; September 2026 &middot; 6 min read</p>
+
+    <p>Here is an anomaly detector you have probably written, or at least reviewed:</p>
+
+<pre><code>med = np.median(x)
+mad = 1.4826 * np.median(np.abs(x - med))
+z = np.abs(x - med) / mad
+alert = z &gt; 3</code></pre>
+
+    <p>It is a robust z-score. Median instead of mean, median absolute deviation (MAD)
+    instead of standard deviation, so a few outliers can't wreck the baseline. The 1.4826
+    makes the MAD comparable to a standard deviation, so <code>z &gt; 3</code> reads as
+    "three sigma." It is in a lot of monitoring code, and for spikes, steps and dropouts it
+    works well.</p>
+
+    <p>Now give it a signal that rises steadily: a bearing wearing out, a filter clogging, a
+    seal leaking a little more each day. Make the rise 2&times;. Make it 1000&times;.
+    <strong>This detector will never fire.</strong> Not late, not with low sensitivity.
+    Never, at any magnitude.</p>
+
+    <h2>The four-line proof</h2>
+
+    <p>Take a linear ramp with range R. Its values are spread uniformly across an interval
+    of width R.</p>
+
+    <div class="proof">
+      <ol>
+        <li>The median is the midpoint, so deviations from it are uniform on
+        <code>[&minus;R/2, +R/2]</code>.</li>
+        <li>The absolute deviations are uniform on <code>[0, R/2]</code>, so their median, the
+        MAD, is <code>R/4</code>. Scaled: <code>1.4826 &times; R/4 = 0.37065&middot;R</code>.</li>
+        <li>The biggest deviation is at either end: <code>0.5&middot;R</code>.</li>
+        <li>So the biggest z-score the rule can ever produce is
+        <code>0.5&middot;R / 0.37065&middot;R = 1.349</code>.</li>
+      </ol>
+    </div>
+
+    <p><strong>R cancels.</strong> A bigger fault stretches the deviation being scored and
+    the scale it's divided by by exactly the same factor. The ceiling is 1.349 no matter how
+    large the ramp gets, and your threshold is 3.</p>
+
+    <h2>The numbers</h2>
+
+    <p>I built a small evaluation harness,
+    <a href="https://github.com/johnhagedorncs/tsad-harness">tsad-harness</a>, that
+    generates signals with known ground truth and runs detectors against them. On noiseless
+    ramps:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ramp size</th><th>max |z| measured</th><th>predicted</th><th>fires at 3&sigma;?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2&times;</td><td class="num">1.348981518953</td><td class="num">1.348981518953</td><td>no</td></tr>
+          <tr><td>10&times;</td><td class="num">1.348981518953</td><td class="num">1.348981518953</td><td>no</td></tr>
+          <tr><td>100&times;</td><td class="num">1.348981518953</td><td class="num">1.348981518953</td><td>no</td></tr>
+          <tr><td>1000&times;</td><td class="num">1.348981518953</td><td class="num">1.348981518953</td><td>no</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The residual is exactly zero, not merely small. With noise added, the detection rate
+    is 0.00 at all ten magnitudes tested, from 1.5&times; to 1000&times;.</p>
+
+    <figure>
+      <img src="magnitude_sweep.png" alt="Two panels of detection rate against anomaly magnitude on a log scale, one line per detector. On ramps, the self-referencing MAD z-score stays at zero across the whole range while the reference-window version stays at one. On steps, both detect.">
+      <figcaption>Detection rate against anomaly magnitude, one line per detector. Left: on
+      ramps, the self-referencing MAD z-score (red) is flat at zero from 1.5&times; to
+      1000&times;. Right: the same detector finds steps easily. The random-score baseline
+      (grey, dashed) also reaches 1.0 under this series-level metric, which is exactly why the
+      harness reports point-wise and event-wise scores alongside it.</figcaption>
+    </figure>
+
+    <h2>When it holds, and when it doesn't</h2>
+
+    <p>Two honest limits, because a result without its boundaries is marketing:</p>
+
+    <ul>
+      <li><strong>It needs the ramp to fill most of the window.</strong> If some flat healthy
+      data sits in front of the ramp, the ceiling stays at exactly 1.349 until that flat part
+      is a quarter of the window, then it starts to rise. For robust statistics people usually
+      quote a breakdown point of 1/2; against a ramp it's effectively 1/4. A trailing window
+      over a machine that has been degrading throughout is exactly the bad case.</li>
+      <li><strong>It's about uniform values, not about slowness.</strong> An
+      <em>exponential</em> ramp is detected from about 10&times; upward, because its values
+      bunch near the bottom and drag the median down. My first draft of this claim was
+      "robust z-scores can't see slow change." That's wrong, and the harness is what caught
+      it. The correct claim is narrower: a linear ramp is the worst case, and it's also the
+      shape most often used to model steady wear.</li>
+    </ul>
+
+    <h2>The fix, and what it costs</h2>
+
+    <p>The bug isn't robustness. It's that the rule computes its median and MAD from the same
+    data it's scoring, so it has no fixed idea of "normal." It just asks whether each point is
+    unusual relative to its own series.</p>
+
+    <p>Compute the median and MAD once, over a <strong>declared healthy reference
+    window</strong>, and freeze them. Same formula, same threshold of 3. The detection rate on
+    linear ramps goes from <strong>0.00 to 1.00 at every magnitude</strong>.</p>
+
+    <p>It isn't free. On a healthy machine that switches between two normal operating modes,
+    the frozen-reference version flags 50% of points, because the second mode falls outside
+    the reference. The self-referencing version flags none, for the same reason it misses
+    ramps: it adapts to whatever it's shown. You're choosing which mistake you'd rather make,
+    and you can't choose well without measuring both.</p>
+
+    <h2>Why this is worth ten minutes of your time</h2>
+
+    <p>A system built on the self-referencing rule looks healthy. It catches spikes and steps,
+    keeps a low false-positive rate, and stays quiet. On a dashboard, its silence about gradual
+    wear is indistinguishable from there being no wear.</p>
+
+    <p>That fits a broader argument from Wu and Keogh
+    (<a href="https://arxiv.org/abs/2009.13807">arXiv:2009.13807</a>): time-series anomaly
+    benchmarks are flawed in ways that create an illusion of progress. Their case centers on
+    bad labels and inflated metrics. This is a different kind of example. The labels are fine
+    and the metric is fine; the detector just can't do it, and no benchmark made of steps and
+    spikes will ever show you that.</p>
+
+    <p class="takeaway"><strong>If your evaluation set doesn't contain the geometry that
+    breaks your detector, your evaluation can't find the break.</strong> Build test signals
+    with known ground truth, include a slow ramp, and keep a random-score baseline and a
+    no-anomaly series in every results table.</p>
+
+    <hr>
+
+    <p class="post-footer">The full derivation, including the proof of the 1/4 breakdown point,
+    is in <a href="https://github.com/johnhagedorncs/tsad-harness/blob/main/paper/ramp_blindness.md">paper/ramp_blindness.md</a>.
+    Every number above is regenerated by one command in the
+    <a href="https://github.com/johnhagedorncs/tsad-harness">repo</a>.</p>
+  </article>
+
+  <footer>&copy; 2026 John Hagedorn</footer>
+
+  <script>
+    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+  </script>
+</body>
+</html>
