@@ -351,6 +351,7 @@ nav ul li a:hover::after {
 }
 
 /* Background images for each project */
+.project.warm-route { background-image: url('warm-route.jpg'); }
 .project.bearing-watch { background-image: url('bearing-watch.jpg'); }
 .project.tsad-harness { background-image: url('tsad-harness.png'); }
 .project.sensorlint { background-image: url('sensorlint.png'); }
